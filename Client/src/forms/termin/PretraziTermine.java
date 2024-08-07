@@ -154,17 +154,17 @@ public class PretraziTermine extends javax.swing.JDialog {
         try {
             // TODO add your handling code here:
             if(cmbGrupe.getSelectedIndex()==-1){
-                JOptionPane.showMessageDialog(this, "Morate izabrati grupu","", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da ucita termin","", JOptionPane.ERROR_MESSAGE);
                 return;
             }
             Grupa grupa = (Grupa) cmbGrupe.getSelectedItem();
 
             List<Termin> termini = Communication.getInstance().getTermini(grupa);
             if(termini.isEmpty()){
-                JOptionPane.showMessageDialog(this, "Ne postoje termini za izabranu grupu","", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da pronadje termine po zadatoj vrednosti","", JOptionPane.ERROR_MESSAGE);
                 jButton2.setEnabled(false);
             }else{
-                JOptionPane.showMessageDialog(this, "Uspesno ucitani termini");
+                JOptionPane.showMessageDialog(this, "Sistem je pronasao termine po zadatoj vrednosti");
                 jButton2.setEnabled(true);
             }
             ModelTabeleTermin mtt = new ModelTabeleTermin(termini);
@@ -189,7 +189,7 @@ public class PretraziTermine extends javax.swing.JDialog {
                // Logger.getLogger(PretraziTermine.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else{
-            JOptionPane.showMessageDialog(this, "Nije moguce ucitati termin, morate izabrati red","", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem ne moze da pronadje termin","", JOptionPane.ERROR_MESSAGE);
         }
              
 

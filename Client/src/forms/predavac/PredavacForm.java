@@ -143,7 +143,7 @@ public class PredavacForm extends javax.swing.JDialog {
             }
             Predavac predavac = new Predavac(-1l, ime, prezime);
             Communication.getInstance().addPredavac(predavac);
-            JOptionPane.showMessageDialog(this, "Predavac je uspesno sacuvan u bazi");
+            JOptionPane.showMessageDialog(this, "Sistem je sacuvao predavaca");
             int odgovor=JOptionPane.showConfirmDialog(this, "Da li zelite da dodate jos predavaca?","DODAVANJE PREDAVACA",JOptionPane.YES_NO_OPTION);
             if(odgovor==JOptionPane.YES_OPTION){
                 txtIme.setText("");
@@ -163,7 +163,7 @@ public class PredavacForm extends javax.swing.JDialog {
         if(odgovor==JOptionPane.YES_OPTION){
             try {
                 Communication.getInstance().deletePredavac(Controller.getInstance().getPredavac());
-                JOptionPane.showMessageDialog(this, "Predavac je uspesno obrisan");
+                JOptionPane.showMessageDialog(this, "Sistem je obrisao predavaca");
                 ppf.osveziFormu(Controller.getInstance().getPredavac().getIme());
                 Controller.getInstance().setPredavac(null);
                 this.dispose();
@@ -193,7 +193,7 @@ public class PredavacForm extends javax.swing.JDialog {
                 btnObrisi.setEnabled(false);
                 break;
             case ClientConstants.OBRISI:
-                JOptionPane.showMessageDialog(this, "Uspesno je ucitan predavac");
+                JOptionPane.showMessageDialog(this, "Sistem je ucitao predavaca");
                 Predavac p = Controller.getInstance().getPredavac();
                 txtIme.setText(p.getIme());
                 txtPrezime.setText(p.getPrezime());

@@ -171,10 +171,10 @@ public class PretraziClanaForm extends javax.swing.JDialog {
             ModelTabeleClan mtc = new ModelTabeleClan(clanovi);
             
             if(clanovi.isEmpty()){
-                JOptionPane.showMessageDialog(this, "Ne postoje clanovi u bazi sa datim imenom!","", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da ucita clanove po zadatoj vrednosti","", JOptionPane.ERROR_MESSAGE);
                 btnDetalji.setEnabled(false);
             }else{
-                JOptionPane.showMessageDialog(this, "Uspesno ucitana lista clanova");
+                JOptionPane.showMessageDialog(this, "Sistem je ucitao clanove po zadatoj vrednosti");
                 btnDetalji.setEnabled(true);
             }
             jTable1.setModel(mtc);
@@ -190,7 +190,7 @@ public class PretraziClanaForm extends javax.swing.JDialog {
         // TODO add your handling code here:
         int red = jTable1.getSelectedRow();
         if (red == -1) {
-            JOptionPane.showMessageDialog(this, "Nije moguce ucitati clana, morate izabrati red","", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem ne moze da ucita clana","", JOptionPane.ERROR_MESSAGE);
         } else {
             ModelTabeleClan mtc = (ModelTabeleClan) jTable1.getModel();
             Clan clan = mtc.getClanovi().get(red);

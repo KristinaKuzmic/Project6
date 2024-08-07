@@ -180,7 +180,7 @@ public class TerminForm extends javax.swing.JDialog {
             String vreme = (String) cmbVreme.getSelectedItem();
             Termin termin = new Termin(id, grupa, datume, vreme);
             Communication.getInstance().updateTermin(termin);
-            JOptionPane.showMessageDialog(this, "Termin je sacuvan");
+            JOptionPane.showMessageDialog(this, "Sistem je sacuvao termin");
             pt.osveziFormu(grupa);
             txtDatum.setEnabled(false);
             cmbGrupe.setEnabled(false);
@@ -223,7 +223,7 @@ public class TerminForm extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void popuniFormu() {
-        JOptionPane.showMessageDialog(this, "Uspesno ucitan termin");
+        JOptionPane.showMessageDialog(this, "Sistem je ucitao termin");
         Termin termin = Controller.getInstance().getTermin();
         txtId.setText(termin.getId() + "");
         txtDatum.setText(ClientConstants.SDFDATUM.format(termin.getDatum()) + "");

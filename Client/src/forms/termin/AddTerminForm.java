@@ -220,7 +220,7 @@ public class AddTerminForm extends javax.swing.JDialog {
                 return;
             }
             Communication.getInstance().addTermine(termini);
-            JOptionPane.showMessageDialog(this, "Termini su uspesno sacuvani");
+            JOptionPane.showMessageDialog(this, "Sistem je sacuvao termine");
             int odgovor = JOptionPane.showConfirmDialog(this, "Da li zelite da dodajete jos termina?", "DODAVANJE TERMINA", JOptionPane.YES_NO_OPTION);
             if (odgovor == JOptionPane.YES_OPTION) {
                 mtt.obrisiListu();

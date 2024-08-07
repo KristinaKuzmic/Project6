@@ -154,10 +154,10 @@ public class PretraziPredavacaForm extends javax.swing.JDialog {
             }
             List<Predavac> predavaci = Communication.getInstance().getPredavac(ime);
             if(predavaci.isEmpty()){
-                JOptionPane.showMessageDialog(this, "Ne postoje predavaci za navedeno ime","", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(this, "Sistem ne moze da ucita predavace po zadatoj vrednosti","", JOptionPane.ERROR_MESSAGE);
                 btnDetalji.setEnabled(false);
             }else{
-                JOptionPane.showMessageDialog(this, "Uspesno je ucitana lista predavaca");
+                JOptionPane.showMessageDialog(this, "Sistem je ucitao predavace po zadatoj vrednosti");
                  btnDetalji.setEnabled(true);
             }
             ModelTabelePredavac mtp = new ModelTabelePredavac(predavaci);
@@ -173,7 +173,7 @@ public class PretraziPredavacaForm extends javax.swing.JDialog {
         // TODO add your handling code here:
         int red = jTable1.getSelectedRow();
         if (red == -1) {
-            JOptionPane.showMessageDialog(this, "Nije moguce ucitati predavaca, morate izabrati red","", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Sistem ne moze da ucita predavacа","", JOptionPane.ERROR_MESSAGE);
         } else {
             ModelTabelePredavac mtp = (ModelTabelePredavac) jTable1.getModel();
             Controller.getInstance().setPredavac(mtp.getPredavaci().get(red));

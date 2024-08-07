@@ -214,7 +214,7 @@ public class ClanForm extends javax.swing.JDialog {
             int odgovor = JOptionPane.showConfirmDialog(this, "Da li ste sigurni da zelite da obrisete clna?", "BRISANJE CLANA", JOptionPane.YES_NO_OPTION);
             if (odgovor == JOptionPane.YES_OPTION) {
                 Communication.getInstance().deleteClan(clan);
-                JOptionPane.showMessageDialog(this, "Uspesno obrisan clan");
+                JOptionPane.showMessageDialog(this, "Sistem je obrisao clana");
                 pcf.osveziFormu(clan.getIme());
                 clan = null;
                 this.dispose();
@@ -244,7 +244,7 @@ public class ClanForm extends javax.swing.JDialog {
                 btnZakazivanja.setEnabled(false);
                 break;
             case ClientConstants.IZMENI:
-                JOptionPane.showMessageDialog(this, "Uspeno ucitan clan!");
+                JOptionPane.showMessageDialog(this, "Sistem je ucitao clana");
                 txtId.setText(clan.getId() + "");
                 txtIme.setText(clan.getIme());
                 txtPrezime.setText(clan.getPrezime());
@@ -335,7 +335,7 @@ public class ClanForm extends javax.swing.JDialog {
                         Clan clan = new Clan(id, ime, prezime, jmbg, grupa);
                         Status status = Communication.getInstance().updateClana(clan);
                         if (status == Status.SUCCESS) {
-                            JOptionPane.showMessageDialog(this, "Clan je uspesno sacuvan!");
+                            JOptionPane.showMessageDialog(this, "Sistem je sacuvao clana");
                             Controller.getInstance().setClan(clan);
                             pcf.osveziFormu(Controller.getInstance().getImeClana());
                             cmbGrupe.setEnabled(false);
@@ -346,7 +346,7 @@ public class ClanForm extends javax.swing.JDialog {
                             btnSacuvaj.setEnabled(false);
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "JMBG mora imati tacno 13 cifara!","", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva clana","", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                 }
@@ -364,7 +364,7 @@ public class ClanForm extends javax.swing.JDialog {
                     if (jmbg.length() == 13) {
                         Clan clan = new Clan(-1l, ime, prezime, jmbg, grupa);
                         Communication.getInstance().kreirajClana(clan);
-                        JOptionPane.showMessageDialog(this, "Clan je uspesno sacuvan!");
+                        JOptionPane.showMessageDialog(this, "Sistem je sacuvao clana");
                         int odgovor = JOptionPane.showConfirmDialog(this, "Da li zelite da uneste jos nekog clana?",
                                 "UNOS CLANA", JOptionPane.YES_NO_OPTION);
                         if (odgovor == JOptionPane.YES_OPTION) {
@@ -376,7 +376,7 @@ public class ClanForm extends javax.swing.JDialog {
                             this.dispose();
                         }
                     } else {
-                        JOptionPane.showMessageDialog(this, "JMBG mora imati tacno 13 cifara!","", JOptionPane.ERROR_MESSAGE);
+                        JOptionPane.showMessageDialog(this, "Sistem ne moze da sacuva clana","", JOptionPane.ERROR_MESSAGE);
                         return;
                     }
                 }
